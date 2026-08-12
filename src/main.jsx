@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
+import{createRoot}from'react-dom/client';
 import{ArrowUpRight,ArrowDown,ArrowUp,Menu,X,Sun,Factory,Warehouse,Beef,Ship,Building2}from'lucide-react';
 import'./style.css';
 
@@ -29,8 +30,10 @@ en:{
 }};
 const ids=['about','performance','technology','product','applications','timeline','projects','contact'];
 const Head=({a})=><><p className="eyebrow">{a[0]}</p><h2>{a[1]}<br/><em>{a[2]}</em></h2><p className="desc">{a[3]}</p></>;
-export default function App(){const[lang,setLang]=useState('kr'),[open,setOpen]=useState(false);const c=copy[lang];return <main>
-<header><a className="logo" href="#home"><img src="/assets/siwoncoat-logo.png" alt="시원코트 로고"/></a><nav className={open?'open':''}>{c.nav.map((x,i)=><a key={x} href={'#'+ids[i]} onClick={()=>setOpen(false)}>{x}</a>)}<div className="langs"><button onClick={()=>setLang('en')}>EN</button><button onClick={()=>setLang('kr')}>KR</button></div></nav><button className="menu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></header>
+export default function App(){const[lang,setLang]=useState('kr'),[open,setOpen]=useState(false),[navTone,setNavTone]=useState('over-dark');const c=copy[lang];
+useEffect(()=>{let frame;const updateNavTone=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const header=document.querySelector('header');const y=(header?.offsetHeight||88)+2;const section=document.elementFromPoint(window.innerWidth/2,y)?.closest('.panel');const isLight=section&&(section.classList.contains('light')||section.classList.contains('product'));setNavTone(isLight?'over-light':'over-dark')})};updateNavTone();window.addEventListener('scroll',updateNavTone,{passive:true});window.addEventListener('resize',updateNavTone);return()=>{cancelAnimationFrame(frame);window.removeEventListener('scroll',updateNavTone);window.removeEventListener('resize',updateNavTone)}},[]);
+return <main>
+<header className={navTone}><a className="logo" href="#home"><img src="/assets/siwoncoat-logo.png" alt="시원코트 로고"/></a><nav className={open?'open':''}>{c.nav.map((x,i)=><a key={x} href={'#'+ids[i]} onClick={()=>setOpen(false)}>{x}</a>)}<div className="langs"><button onClick={()=>setLang('en')}>EN</button><button onClick={()=>setLang('kr')}>KR</button></div></nav><button className="menu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></header>
 <section id="home" className="panel hero dark"><video className="hero-video" autoPlay muted loop playsInline preload="auto" poster="/assets/hero-industrial-roof.png"><source src="/assets/siwoncoat-hero.mp4" type="video/mp4"/></video><div className="shade"></div><div className="inner hero-copy"><p className="eyebrow">{c.hero[0]}</p><h1>{c.hero[1]}<br/><em>{c.hero[2]}</em></h1><p className="desc">{c.hero[3]}</p><div className="actions"><a href="#technology">{c.hero[4]}<ArrowUpRight/></a><a href="#contact">{c.hero[5]}<ArrowUpRight/></a></div></div><a className="down" href="#about">아래로 보기 <ArrowDown/></a></section>
 <section id="about" className="panel light"><div className="inner"><Head a={c.about}/><div className="stats"><div><b>10<sup>°C</sup></b><span>강진군 축사 현장 온도 저감</span></div><div><b>5<sup>단계</sup></b><span>표준 시공 공정</span></div><div><b>AI</b><span>시공 전후 성능관리</span></div></div><small className="note">* 2026.06.07 전남 강진군 축사 현장 실증: 지붕 표면 36°C → 26°C.</small></div></section>
 <section id="performance" className="panel navy"><div className="inner split"><div><Head a={c.problem}/><ol>{['태양복사열 흡수','지붕 표면 가열','실내 열 유입','냉방비와 전력 부담'].map((x,i)=><li key={x}><span>0{i+1}</span>{x}</li>)}</ol></div><div className="thermo"><Sun/><div><b>36°C</b><small>시공 전</small></div><ArrowDown/><div className="cool"><b>26°C</b><small>시공 후</small></div></div></div></section>
@@ -52,3 +55,6 @@ export default function App(){const[lang,setLang]=useState('kr'),[open,setOpen]=
 ['/assets/roof-verification.png','03 — 현장 검증','도막 완성 및 온도 성능 확인']].map(x=><article key={x[1]}><img className="pic" src={x[0]} alt={x[2]}/><small>{x[1]}</small><b>{x[2]}</b></article>)}</div></div></section>
 <section id="contact" className="panel contact dark"><div className="orb"></div><div className="inner"><Head a={c.contact}/><div className="contacts"><a href="tel:0617223369"><span>01</span>전화 061-722-3369 · 010-9086-3369<ArrowUpRight/></a><a href="mailto:whp77@naver.com"><span>02</span>이메일 WHP77@NAVER.COM<ArrowUpRight/></a><a href="https://www.siwoncoat.com"><span>03</span>제품·시공·파트너십 문의<ArrowUpRight/></a></div><footer>© 2026 SIWONCOAT <span>패각 자원순환 차열 솔루션</span><a href="#home">맨 위로 <ArrowUp/></a></footer></div></section>
 </main>}
+
+const rootElement=typeof document!=='undefined'?document.getElementById('root'):null;
+if(rootElement)createRoot(rootElement).render(<App/>);

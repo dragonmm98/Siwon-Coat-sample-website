@@ -40,3 +40,133 @@ nav a:hover{color:#148fb5}
 .hero .shade{z-index:1}
 .hero .hero-copy,.hero .down{z-index:2}
 @media(prefers-reduced-motion:reduce){.hero-video{display:none}.hero{background:#061923 url('/assets/hero-industrial-roof.png') center/cover no-repeat}}
+
+/* Transparent navigation with high-contrast controls on every section */
+header{
+  background:linear-gradient(180deg,rgba(3,19,27,.62),rgba(3,19,27,.22));
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  box-shadow:0 8px 28px rgba(3,19,27,.14);
+  -webkit-backdrop-filter:blur(12px) saturate(125%);
+  backdrop-filter:blur(12px) saturate(125%);
+}
+.logo{
+  background:rgba(255,255,255,.9);
+  border-radius:10px;
+  box-shadow:0 5px 18px rgba(3,19,27,.16);
+}
+.logo img{mix-blend-mode:normal}
+nav a{
+  color:#fff;
+  opacity:1;
+  text-shadow:0 1px 8px rgba(0,0,0,.65);
+}
+nav a:hover{color:var(--cyan)}
+.langs{border-left-color:rgba(255,255,255,.4)}
+.langs button,.menu{
+  color:#fff;
+  cursor:pointer;
+  text-shadow:0 1px 8px rgba(0,0,0,.65);
+}
+.langs button{
+  min-width:38px;
+  min-height:36px;
+  border:1px solid rgba(255,255,255,.48);
+  border-radius:999px;
+  margin-left:5px;
+}
+.langs button:hover,.menu:hover{
+  color:#031923;
+  background:var(--cyan);
+  border-color:var(--cyan);
+  text-shadow:none;
+}
+.actions a,.linebtn{
+  width:230px;
+  min-height:54px;
+  padding:15px 18px;
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:8px;
+  color:#fff;
+  background:rgba(3,19,27,.36);
+  box-shadow:0 8px 24px rgba(3,19,27,.18);
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.actions a:hover,.linebtn:hover{
+  color:#031923;
+  background:var(--cyan);
+  border-color:var(--cyan);
+  transform:translateY(-2px);
+}
+.product .linebtn{
+  color:#071a23;
+  background:rgba(255,255,255,.62);
+  border-color:#60747d;
+}
+.product .linebtn:hover{background:#071a23;color:#fff;border-color:#071a23}
+@media(max-width:800px){
+  nav{
+    background:rgba(3,19,27,.88);
+    border-top:1px solid rgba(255,255,255,.18);
+    box-shadow:0 15px 28px rgba(3,19,27,.25);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+  }
+  .menu{width:44px;height:44px;border:1px solid rgba(255,255,255,.5);border-radius:8px}
+  .actions a,.linebtn{width:100%}
+}
+
+/* Switch the transparent navigation treatment with the section beneath it. */
+header,header nav a,header .langs button,header .menu,header .logo{
+  transition:background-color .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+header.over-dark{
+  background:rgba(255,255,255,.76);
+  color:#071a23;
+  border-bottom-color:rgba(255,255,255,.62);
+  box-shadow:0 8px 28px rgba(3,19,27,.12);
+}
+header.over-dark .logo{background:rgba(255,255,255,.38);box-shadow:none}
+header.over-dark nav a,header.over-dark .langs button,header.over-dark .menu{
+  color:#071a23;
+  text-shadow:none;
+}
+header.over-dark .langs{border-left-color:rgba(7,26,35,.28)}
+header.over-dark .langs button,header.over-dark .menu{border-color:rgba(7,26,35,.38)}
+header.over-light{
+  background:rgba(3,19,27,.76);
+  color:#fff;
+  border-bottom-color:rgba(255,255,255,.16);
+  box-shadow:0 8px 28px rgba(3,19,27,.18);
+}
+header.over-light .logo{background:rgba(255,255,255,.92)}
+header.over-light nav a,header.over-light .langs button,header.over-light .menu{color:#fff}
+header.over-light .langs{border-left-color:rgba(255,255,255,.36)}
+header.over-light .langs button,header.over-light .menu{border-color:rgba(255,255,255,.48)}
+@media(max-width:800px){
+  header.over-dark nav{background:rgba(255,255,255,.9)}
+  header.over-dark nav a,header.over-dark nav .langs button{color:#071a23}
+  header.over-light nav{background:rgba(3,19,27,.9)}
+}
+
+/* Wider section content on desktop and tablet screens */
+.inner{width:min(1400px,94%)}
+@media(max-width:800px){.inner{width:92%}}
+
+/* Keep the hero copy readable without hiding the background video. */
+.hero .shade{
+  background:
+    linear-gradient(90deg,rgba(3,19,27,.62) 0%,rgba(3,19,27,.34) 38%,rgba(3,19,27,.08) 72%,transparent 100%),
+    linear-gradient(0deg,rgba(3,19,27,.34) 0%,transparent 46%);
+}
+@media(max-width:800px){
+  .hero .shade{
+    background:linear-gradient(90deg,rgba(3,19,27,.58),rgba(3,19,27,.16)),linear-gradient(0deg,rgba(3,19,27,.3),transparent 55%);
+  }
+}
+
+/* Display the brand mark without a logo-container background. */
+header .logo,header.over-dark .logo,header.over-light .logo{
+  background:transparent;
+  box-shadow:none;
+}
