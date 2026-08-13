@@ -171,3 +171,49 @@ header .logo,header.over-dark .logo,header.over-light .logo{
   background:transparent;
   box-shadow:none;
 }
+
+/* Horizontal brand lockup — box matches the artwork's 3.49:1 aspect ratio. */
+.logo{width:196px;height:56px;padding:0}
+@media(max-width:1100px){.logo{width:168px;height:48px}}
+@media(max-width:800px){.logo{width:150px;height:43px}}
+
+/* Single source of truth for the fixed navigation height, so every section's
+   top offset clears the bar exactly instead of drifting from it. */
+:root{--nav-h:92px}
+@media(max-width:800px){:root{--nav-h:70px}}
+header{height:var(--nav-h)}
+.panel{padding-top:var(--nav-h)}
+@media(max-width:800px){nav{top:var(--nav-h)}}
+
+/* Lighter navigation veil — less dark in every scroll state — and larger menu type. */
+header{
+  background:linear-gradient(180deg,rgba(3,19,27,.34),rgba(3,19,27,.06));
+  border-bottom-color:rgba(255,255,255,.12);
+  box-shadow:0 6px 20px rgba(3,19,27,.08);
+}
+header.over-dark{
+  background:rgba(255,255,255,.86);
+  border-bottom-color:rgba(255,255,255,.7);
+  box-shadow:0 6px 20px rgba(3,19,27,.08);
+}
+header.over-light{
+  background:rgba(3,19,27,.44);
+  border-bottom-color:rgba(255,255,255,.14);
+  box-shadow:0 6px 20px rgba(3,19,27,.1);
+}
+nav{font-size:15px;gap:28px}
+.langs button{font-size:14px}
+@media(max-width:1280px){nav{font-size:14px;gap:20px}}
+@media(max-width:1100px){nav{font-size:12.5px;gap:15px}}
+@media(max-width:800px){nav{font-size:17px;gap:22px}}
+
+/* Hover colour per header state. The .over-dark/.over-light colour rules outrank a
+   bare `nav a:hover`, so each state needs its own hover selector to win the cascade. */
+nav a,.langs button{transition:color .2s ease}
+nav a{cursor:pointer}
+header.over-dark nav a:hover,header.over-dark .langs button:hover{color:#148fb5}
+header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--cyan)}
+@media(max-width:800px){
+  header.over-dark nav a:hover,header.over-dark nav .langs button:hover{color:#148fb5}
+  header.over-light nav a:hover,header.over-light nav .langs button:hover{color:var(--cyan)}
+}
