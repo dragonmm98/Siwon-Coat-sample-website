@@ -217,3 +217,105 @@ header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--
   header.over-dark nav a:hover,header.over-dark nav .langs button:hover{color:#148fb5}
   header.over-light nav a:hover,header.over-light nav .langs button:hover{color:var(--cyan)}
 }
+
+/* ============ Catalog-parity sections (VOL.1) ============ */
+
+/* Hero stat strip + secondary download button */
+.hero-stats{display:flex;gap:0;margin-top:40px;max-width:660px;border-top:1px solid rgba(255,255,255,.28)}
+.hero-stats div{flex:1;padding:20px 24px 0 0;margin-right:24px;border-right:1px solid rgba(255,255,255,.2)}
+.hero-stats div:last-child{border-right:0;margin-right:0}
+.hero-stats b{display:block;font-size:34px;font-weight:400;color:#fff}
+.hero-stats span{display:block;font-size:12px;color:#cbd4d7;margin-top:6px}
+.actions a.ghost{background:transparent;border-style:dashed}
+
+/* Performance: metrics grid + CSS energy bar chart */
+.perf{height:auto;min-height:100vh}
+.perf .inner{padding:110px 0}
+.proof{display:grid;grid-template-columns:1.15fr 1fr;gap:6%;align-items:center;margin-top:55px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #33454e;border-left:1px solid #33454e}
+.metrics div{padding:22px 24px;border-right:1px solid #33454e;border-bottom:1px solid #33454e}
+.metrics b{display:block;font-size:33px;color:var(--cyan);font-weight:400}
+.metrics span{display:block;font-size:12px;color:#9dabb0;margin-top:6px}
+.chart>small{color:#9dabb0;font-size:12px}
+.bars{display:flex;align-items:flex-end;gap:46px;margin-top:22px;position:relative;padding:0 6px}
+.bar{width:88px;display:flex;flex-direction:column;align-items:center}
+.bar em{font-style:normal;font-size:13px;color:#cfd8db;margin-bottom:9px}
+.bar i{width:100%;background:#3a5763;border-radius:6px 6px 0 0}
+.bar i.lo{background:linear-gradient(180deg,var(--cyan),#2f97b6)}
+.bar span{font-size:12px;color:#9dabb0;margin-top:10px;padding-top:9px;border-top:1px solid #33454e;width:100%;text-align:center}
+.save{position:absolute;right:0;top:0;color:var(--cyan);font-weight:600;font-size:13px}
+
+/* Problem vs Solution comparison */
+.compare-panel{height:auto;min-height:100vh}
+.compare-panel .inner{padding:110px 0}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:42px}
+.compare article{padding:34px;border:1px solid #cfd6d4;border-radius:14px;background:#fff}
+.compare h3{margin:0 0 18px;font-size:22px;font-weight:600}
+.compare p{display:flex;align-items:center;gap:12px;margin:0;padding:15px 0;border-top:1px solid #e6eae8;font-size:15px;color:#3d4a4f}
+.compare svg{width:18px;height:18px;flex:none}
+.compare .conv{background:#f4f2f0}
+.compare .conv h3{color:#8a8078}
+.compare .conv svg{color:#c0554b}
+.compare .good{border-color:var(--cyan);box-shadow:0 18px 40px #51d7f722}
+.compare .good h3{color:#0f7f9e}
+.compare .good svg{color:#1aa0bf}
+
+/* Technology process steps */
+.techx{height:auto;min-height:100vh}
+.techx .inner{padding:110px 0}
+.steps-wrap{margin-top:52px;display:grid;gap:28px}
+.steprow h4{margin:0 0 15px;font-size:13px;letter-spacing:2px;color:#56636a;text-transform:uppercase}
+.steps{display:flex;flex-wrap:wrap;gap:12px}
+.steps>div{flex:1;min-width:155px;display:flex;align-items:center;gap:12px;padding:16px 18px;background:#fff;border:1px solid #d5dcda;border-radius:10px;font-size:14px;font-weight:500;color:#28343a}
+.steps>div span{width:26px;height:26px;flex:none;border-radius:50%;background:var(--cyan);color:#052231;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+
+/* Product lineup (two coatings) */
+.product{height:auto;min-height:100vh}
+.product .inner{padding:110px 0}
+.lineup{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:42px}
+.pcard{background:#fff;border:1px solid #ccd3d1;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 45px #52626822}
+.pmedia{height:280px;background:linear-gradient(150deg,#eef1ef,#cfd6d4);display:flex;align-items:center;justify-content:center}
+.pmedia img{max-height:240px;max-width:82%;object-fit:contain;filter:drop-shadow(12px 16px 18px #52626855)}
+.pph svg{width:92px;height:92px;color:#8a97a0}
+.pbody{padding:30px 32px 34px}
+.pbody h3{margin:0;font-size:26px;font-weight:600;color:#0d1e26}
+.ptag{display:block;color:#0f7f9e;font-size:13px;margin:8px 0 20px}
+.pcard .specs{grid-template-columns:1fr 1fr;border-top:1px solid #d9e0de}
+.pcard .specs span{padding:16px 0;border-bottom:1px solid #e2e7e5;font-size:12px;color:#6c777b}
+.pcard .specs span:nth-child(odd){padding-right:14px}
+.pcard .specs b{font-size:15px}
+
+/* ESG circular-economy loop */
+.esg{height:auto;min-height:100vh}
+.esg .inner{padding:110px 0}
+.loop{display:flex;flex-wrap:wrap;align-items:stretch;gap:14px;margin-top:46px}
+.node{flex:1;min-width:150px;display:flex;flex-direction:column;align-items:center;gap:14px;padding:32px 18px;background:#fff;border:1px solid #d5dcda;border-radius:14px;text-align:center}
+.node svg{width:34px;height:34px;color:var(--cyan)}
+.node span{font-size:14px;font-weight:500;color:#28343a}
+.loparrow{width:22px;color:#9fb0b4;flex:none;align-self:center}
+
+/* Partnerships / B2B */
+.partners{height:auto;min-height:100vh}
+.partners .inner{padding:110px 0}
+.pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.pcards article{padding:30px 26px;border:1px solid #33454e;border-radius:14px;background:#0a2531}
+.pcards svg{width:30px;height:30px;color:var(--cyan)}
+.pcards h3{margin:18px 0 10px;font-size:18px;font-weight:600}
+.pcards p{margin:0;color:#9dabb0;font-size:13px;line-height:1.65}
+
+/* Contact company details */
+.contact .company{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:28px;color:#8d9ba1;font-size:12px}
+.contact .company span{position:relative;padding-left:16px}
+.contact .company span:before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+
+@media(max-width:1100px){.pcards{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){
+  .hero-stats{flex-wrap:wrap;gap:14px 0}
+  .hero-stats div{flex:1 0 42%;border-right:0;margin-right:0;padding:14px 14px 0 0}
+  .proof{grid-template-columns:1fr;gap:38px}
+  .compare,.lineup,.pcards,.steps>div{grid-template-columns:1fr}
+  .steps>div{min-width:100%}
+  .loop{flex-direction:column}
+  .loparrow{transform:rotate(90deg)}
+  .bars{gap:34px}
+}
