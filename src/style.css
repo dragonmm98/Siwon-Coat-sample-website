@@ -4,6 +4,7 @@
 
 /* Typography refinements from browser review */
 .hero-copy h1{font-family:'Manrope','Noto Sans KR',Arial,sans-serif}
+.hero-copy{transform:translateX(-33px)}
 .eyebrow{font-size:20px;letter-spacing:2px;padding-left:44px}
 .eyebrow:before{width:32px;height:2px;top:14px}
 .desc{max-width:680px;font-size:20px;line-height:1.75}
@@ -11,6 +12,27 @@
 #performance li{padding:20px 0;font-size:18px;font-weight:500}
 #performance li span{font-size:15px}
 @media(max-width:800px){.eyebrow{font-size:17px}.desc,.hero .desc{font-size:17px}#performance li{font-size:16px}}
+@media(max-width:800px){.hero-copy{transform:none}}
+
+/* Make product specification labels more prominent than their values. */
+.specs span{font-size:16px;font-weight:700;color:var(--ink)}
+.specs b{font-size:13px;font-weight:500;line-height:1.45}
+.faq-list{border-top:1px solid #abb4b2}
+.faq-list details{border-bottom:1px solid #abb4b2;padding:0 4px}
+.faq-list summary{display:flex;align-items:center;gap:20px;padding:22px 0;font-size:18px;font-weight:700;cursor:pointer;list-style:none}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:'+';margin-left:auto;color:#148fb5;font-size:24px;font-weight:400}
+.faq-list details[open] summary:after{content:'−'}
+.faq-list summary span{color:#148fb5;font-size:12px;letter-spacing:1px}
+.faq-list p{margin:0;padding:0 40px 24px;line-height:1.75;color:#56636a;font-size:15px}
+@media(max-width:800px){.faq-list summary{font-size:16px}.faq-list p{padding-left:0;padding-right:0}}
+.answer-blocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:0 0 22px}
+.answer-blocks article{border-top:1px solid #abb4b2;padding-top:14px}
+.navy .answer-blocks article{border-top-color:#41515a}
+.answer-blocks h3{margin:0 0 7px;font-size:16px;line-height:1.35}
+.answer-blocks p{margin:0;color:#65757c;font-size:13px;line-height:1.65}
+.navy .answer-blocks p{color:#c5cdd0}
+@media(max-width:800px){.answer-blocks{grid-template-columns:1fr;gap:14px}.answer-blocks h3{font-size:15px}}
 
 /* Authentic brand and presentation assets */
 header{height:92px}.logo{width:175px;height:66px;padding:7px 13px;overflow:hidden}.logo img{width:100%;height:100%;object-fit:contain}.hero{background-image:url('/assets/hero-industrial-roof.png');background-size:cover;background-position:center}.hero .shade{background:linear-gradient(90deg,#03131bf2 0,#03131ba8 48%,#03131b22 78%),linear-gradient(0deg,#03131bcf,transparent 65%)}
