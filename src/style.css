@@ -341,3 +341,17 @@ header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--
   .loparrow{transform:rotate(90deg)}
   .bars{gap:34px}
 }
+
+/* About section typography */
+#about .answer-blocks h3{font-size:24px}
+#about .answer-blocks p{font-size:16px}
+#about .stats span{font-size:16px}
+#about .stats sup{font-size:24px}
+#about .note{font-size:18px;line-height:1.6}
+
+@media(max-width:800px){
+  #about .answer-blocks h3{font-size:20px}
+  #about .answer-blocks p,#about .stats span{font-size:15px}
+  #about .stats sup{font-size:20px}
+  #about .note{font-size:15px}
+}
