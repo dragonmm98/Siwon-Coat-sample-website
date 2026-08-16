@@ -248,7 +248,10 @@ header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--
 .hero-stats div:last-child{border-right:0;margin-right:0}
 .hero-stats b{display:block;font-size:34px;font-weight:400;color:#fff}
 .hero-stats span{display:block;font-size:12px;color:#cbd4d7;margin-top:6px}
-.actions a.ghost{background:transparent;border-style:dashed}
+.hero .actions a,.hero .actions a.ghost{box-sizing:border-box;padding:18px;border:1px solid rgba(255,255,255,.72);border-radius:8px;background:rgba(5,25,34,.18);transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+.hero .actions a:hover,.hero .actions a.ghost:hover{background:#fff;color:#071a23;border-color:#fff;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.hero .actions a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.hero .actions a,.hero .actions a.ghost{transition:none}.hero .actions a:hover,.hero .actions a.ghost:hover{transform:none}}
 
 /* Performance: metrics grid + CSS energy bar chart */
 .perf{height:auto;min-height:100vh}
@@ -273,7 +276,7 @@ header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:42px}
 .compare article{padding:34px;border:1px solid #cfd6d4;border-radius:14px;background:#fff}
 .compare h3{margin:0 0 18px;font-size:22px;font-weight:600}
-.compare p{display:flex;align-items:center;gap:12px;margin:0;padding:15px 0;border-top:1px solid #e6eae8;font-size:15px;color:#3d4a4f}
+.compare p{display:flex;align-items:center;gap:12px;margin:0;padding:15px 0;border-top:1px solid #e6eae8;font-size:16px;color:#3d4a4f}
 .compare svg{width:18px;height:18px;flex:none}
 .compare .conv{background:#f4f2f0}
 .compare .conv h3{color:#8a8078}
@@ -296,8 +299,10 @@ header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--
 .product .inner{padding:110px 0}
 .lineup{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:42px}
 .pcard{background:#fff;border:1px solid #ccd3d1;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 45px #52626822}
-.pmedia{height:280px;background:linear-gradient(150deg,#eef1ef,#cfd6d4);display:flex;align-items:center;justify-content:center}
-.pmedia img{max-height:240px;max-width:82%;object-fit:contain;filter:drop-shadow(12px 16px 18px #52626855)}
+.pmedia{height:280px;background:radial-gradient(circle at 50% 44%,#f8faf9 0,#e9eeec 46%,#cfd6d4 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pmedia img{max-height:250px;max-width:84%;object-fit:contain;-webkit-mask-image:radial-gradient(ellipse 76% 78% at center,#000 62%,rgba(0,0,0,.92) 72%,transparent 100%);mask-image:radial-gradient(ellipse 76% 78% at center,#000 62%,rgba(0,0,0,.92) 72%,transparent 100%);filter:drop-shadow(12px 16px 18px #52626855);transform:scale(1);transition:transform .35s ease,filter .35s ease;will-change:transform}
+.pcard:hover .pmedia img{transform:scale(1.15);filter:drop-shadow(16px 22px 24px #52626866)}
+@media(prefers-reduced-motion:reduce){.pmedia img{transition:none}}
 .pph svg{width:92px;height:92px;color:#8a97a0}
 .pbody{padding:30px 32px 34px}
 .pbody h3{margin:0;font-size:26px;font-weight:600;color:#0d1e26}
@@ -354,4 +359,46 @@ header.over-light nav a:hover,header.over-light .langs button:hover{color:var(--
   #about .answer-blocks p,#about .stats span{font-size:15px}
   #about .stats sup{font-size:20px}
   #about .note{font-size:15px}
+}
+
+/* Solution and technology typography */
+#solution .compare p{font-size:16px}
+#solution .compare h3{font-size:24px}
+#solution>.inner>.desc{font-size:25px}
+#technology .eyebrow{font-size:24px}
+#technology .split>div:first-child>.desc{font-size:24px}
+#technology .answer-blocks h3{font-size:24px}
+#technology .answer-blocks p{font-size:16px}
+#technology .steprow h4{font-size:18px}
+#technology .steps>div{font-size:16px}
+#technology .steps>div span{font-size:16px}
+
+@media(max-width:800px){
+  #solution>.inner>.desc{font-size:19px}
+  #solution .compare h3{font-size:21px}
+  #technology .eyebrow{font-size:20px}
+  #technology .split>div:first-child>.desc{font-size:19px}
+  #technology .answer-blocks h3{font-size:20px}
+  #technology .answer-blocks p,#technology .steps>div{font-size:15px}
+  #technology .steprow h4{font-size:17px}
+  #technology .steps>div span{font-size:14px}
+}
+
+/* Consistent typography across remaining content sections */
+#about .eyebrow,#solution .eyebrow,#product .eyebrow,#applications .eyebrow,#esg .eyebrow,#projects .eyebrow,#faq .eyebrow,#contact .eyebrow{font-size:24px}
+#about>.inner>.desc,#product>.inner>.desc,#applications>.inner>.desc,#esg>.inner>.desc,#projects>.inner>.desc,#faq .desc,#contact>.inner>.desc{font-size:24px}
+#product .pbody h3,#applications .use-grid h3{font-size:24px}
+#product .ptag,#product .specs span,#applications .use-grid p,#esg .node span{font-size:16px}
+#projects .cards small{font-size:16px}
+#projects .cards b{font-size:24px;line-height:1.4}
+#faq .faq-list summary{font-size:24px}
+#faq .faq-list p{font-size:16px}
+#contact .contacts a,#contact .company{font-size:16px}
+
+@media(max-width:800px){
+  #about .eyebrow,#solution .eyebrow,#product .eyebrow,#applications .eyebrow,#esg .eyebrow,#projects .eyebrow,#faq .eyebrow,#contact .eyebrow{font-size:20px}
+  #about>.inner>.desc,#product>.inner>.desc,#applications>.inner>.desc,#esg>.inner>.desc,#projects>.inner>.desc,#faq .desc,#contact>.inner>.desc{font-size:18px}
+  #product .pbody h3,#applications .use-grid h3,#projects .cards b{font-size:21px}
+  #product .ptag,#product .specs span,#applications .use-grid p,#esg .node span,#projects .cards small,#faq .faq-list p,#contact .contacts a,#contact .company{font-size:15px}
+  #faq .faq-list summary{font-size:20px}
 }
